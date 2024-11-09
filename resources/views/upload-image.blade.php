@@ -42,7 +42,9 @@
                         </div>
                         <div class="flex items-center gap-4">
                             <input type="file" class="file-input file-input-info max-w-xs" required name="image" />
-                            <button class="btn btn-warning" type="submit">Upload</button>
+                            @if (!Session::get('success'))
+                                <button class="btn btn-warning" type="submit">Upload</button>
+                            @endif
                             @if ($message = Session::get('success'))
                                 <a href="{{ route('quota', $profile->id) }}" class="btn btn-primary">Next</a>
                             @endif

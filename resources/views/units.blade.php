@@ -17,6 +17,10 @@
                         <div class="divider">
 
                         </div>
+
+                        @if ($message = Session::get('failed'))
+                            <div class="alert alert-warning my-8">{{ $message }}</div>
+                        @endif
                     </div>
                 </div>
 

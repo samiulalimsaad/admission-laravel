@@ -61,6 +61,11 @@
             opacity: 0.5;
             transform: rotate(-45deg);
         }
+
+        .text-red {
+            color: crimson;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -101,6 +106,10 @@
                 <th>Phone Number</th>
                 <td>{{ $profile->phone_number }}</td>
             </tr>
+            <tr>
+                <th>Payment Amount</th>
+                <td class="text-red">100 TK</td>
+            </tr>
             <!-- Add more fields as necessary -->
         </table>
     </div>
@@ -120,14 +129,14 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>SSC:</td>
+                            <td>SSC</td>
                             <td>{{ $profile->ssc_roll }}</td>
                             <td>{{ $profile->ssc_board }}</td>
                             <td>{{ $profile->ssc_passing_year }}</td>
                             <td>{{ $profile->ssc_result }}</td>
                         </tr>
                         <tr>
-                            <td>HSC:</td>
+                            <td>HSC</td>
                             <td>{{ $profile->hsc_roll }}</td>
                             <td>{{ $profile->hsc_board }}</td>
                             <td>{{ $profile->hsc_passing_year }}</td>

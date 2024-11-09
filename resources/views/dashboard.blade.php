@@ -143,7 +143,8 @@
 
                                 <!-- if there is a button in form, it will close the modal -->
                             </form>
-                            <button class="btn btn-warning w-full my-4">Close</button>
+                            <button class="btn btn-warning w-full my-4"
+                                onclick="number_verification.close()">Close</button>
 
                         </div>
                     </dialog>

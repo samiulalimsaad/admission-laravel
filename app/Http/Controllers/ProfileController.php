@@ -55,7 +55,7 @@ class ProfileController extends Controller
         Log::info("HSC Board:". $profile->hsc_board ."") ;
 
         // return ["message" => "Profile created successfully","code"=> 0,$profile];
-        return view("dashboard", ["profile"=>$profile]);
+        return redirect("dashboard")->with(["profile"=>$profile]);
     }
 
     public function phone(StoreProfileRequest $request)
@@ -81,10 +81,11 @@ class ProfileController extends Controller
             $profile->is_phone_number_verified = true;
             $profile->temp_otp = random_int(100000, 999999);
             $profile->save();
+            return redirect('/profile/units/'.$profile->id)->with('profile', $profile);
+        } else {
+            return redirect('/profile/phone/verify/'. $request->id)->with(['failed'=>'Invalid OTP']);
         }
 
-        // return ["message" => "Profile created successfully","code"=> 0,$profile];
-        return redirect('/profile/units/'.$profile->id)->with('profile', $profile);
 
     }
 
@@ -93,15 +94,17 @@ class ProfileController extends Controller
 
         $profile = Profile::where("id", $request->id)->first();
 
-        if ($profile) {
+        if ($profile && $request->units && count($request->units) > 0) {
             $profile->updated_at = date("Y-m-d H:i:s");
             $profile->units = $request->units;
             $profile->save();
+            return redirect("/upload-image/".$profile->id)->with(["profile"=>$profile]);
+        } else {
+            return redirect("/profile/units/".$profile->id)->with(["failed"=>'select at least one Unit']);
         }
 
-        // return ["message" => "Profile created successfully","code"=> 0,$profile];
 
-        return redirect("/upload-image/".$profile->id)->with(["profile"=>$profile]);
+
     }
 
     public function quota(StoreProfileRequest $request)
@@ -114,9 +117,6 @@ class ProfileController extends Controller
             $profile->quota = $request->quota;
             $profile->save();
         }
-
-        // return ["message" => "Profile created successfully","code"=> 0,$profile];
-
         return view("confirmation", ["profile"=>$profile]);
     }
 
