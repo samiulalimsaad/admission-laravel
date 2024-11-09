@@ -7,12 +7,12 @@
 
             <!-- Content Section -->
             <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                <div class="col-span-4">
+                <div class="col-span-3">
                     @if ($profile->profile_image)
-                        <img src="{{ '/images/' . $profile->profile_image }}" alt="Profile Image" class="avater h-32">
+                        <img src="{{ '/images/' . $profile->profile_image }}" alt="Profile Image" class="avater h-52">
                     @endif
                 </div>
-                <div class="col-span-8">
+                <div class="col-span-9">
                     <div class="overflow-x-auto">
                         <table class="table">
 
@@ -85,6 +85,9 @@
                     <table class="min-w-full bg-white border border-gray-200">
                         <thead>
                             <tr class="bg-gray-100 border-b">
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Application ID</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name</th>
@@ -160,23 +163,27 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $profile->mother_name }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $profile->phone_number }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    @foreach ($profile->quota as $item)
+                                    @foreach (json_decode($profile->quota, true) as $item)
                                         <span>{{ $item }}</span>
                                     @endforeach
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $profile->exam_language }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ $profile->is_paid ? 'Paid' : 'Unpaid' }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $profile->invoice }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">{{ $profile->invoice ? 'download' : 'No' }}
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                {{-- <form action="{{ route('payment') }}" method="POST">
+                <form action="{{ route('payment', $profile->applicationId) }}" method="GET">
+                    @csrf
+                    <div class="flex justify-end w-full">
 
-                    <button>Submit</button>
-                </form> --}}
+                        <button type="submit" class="btn btn-primary my-8">Submit</button>
+                    </div>
+                </form>
             </div>
 
         </div>

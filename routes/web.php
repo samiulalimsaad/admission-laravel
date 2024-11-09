@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Models\Profile;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('home');
@@ -43,7 +44,13 @@ Route::get('/quota/{id}', function (int $id) {
 Route::get('/confirmation/{id}', function (int $id) {
     $profile = Profile::where('id', $id)->first();
     return view('confirmation', ["profile"=> $profile]);
-})->name('quota');
+})->name('confirmation');
+
+
+Route::get('/payment/{id}', function (int $id) {
+    $profile = Profile::where('id', $id)->first();
+    return view('payment', ["profile"=> $profile]);
+})->name('payment');
 
 
 
@@ -62,3 +69,8 @@ Route::middleware('guest')->group(function () {
 
 Route::get('upload-image', [ImageUploadController::class, 'showUploadForm']);
 Route::post('upload-image', [ImageUploadController::class, 'storeImage'])->name('upload.image');
+
+
+
+Route::get('/payment/{id}', [PaymentController::class, 'showForm'])->name('payment');
+Route::post('/payment', [PaymentController::class, 'processPayment'])->name('payment.process');
