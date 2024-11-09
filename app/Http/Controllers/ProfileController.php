@@ -115,9 +115,9 @@ class ProfileController extends Controller
             $profile->save();
         }
 
-        return ["message" => "Profile created successfully","code"=> 0,$profile];
+        // return ["message" => "Profile created successfully","code"=> 0,$profile];
 
-        // return view("units", ["profile"=>$profile]);
+        return view("confirmation", ["profile"=>$profile]);
     }
 
     /**

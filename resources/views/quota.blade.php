@@ -96,6 +96,7 @@
 
                     <button type="submit" class="btn join-item rounded-r-full btn-warning">Confirm</button>
                 </form>
+                <a href="{{ route('confirmation') }}" class="btn join-item rounded-r-full btn-warning">Skip</button>
 
             </div>
         </div>

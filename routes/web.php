@@ -40,6 +40,11 @@ Route::get('/quota/{id}', function (int $id) {
     return view('quota', ["profile"=> $profile]);
 })->name('quota');
 
+Route::get('/confirmation/{id}', function (int $id) {
+    $profile = Profile::where('id', $id)->first();
+    return view('confirmation', ["profile"=> $profile]);
+})->name('quota');
+
 
 
 
