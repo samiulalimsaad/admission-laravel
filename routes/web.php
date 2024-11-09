@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Models\Profile;
 use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
@@ -76,3 +77,6 @@ Route::post('/upload-image', [ImageUploadController::class, 'storeImage'])->name
 
 Route::get('/payment/{id}', [PaymentController::class, 'showForm'])->name('payment');
 Route::post('/payment', [PaymentController::class, 'processPayment'])->name('payment.process');
+
+
+Route::get('/invoice/{applicationId}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');

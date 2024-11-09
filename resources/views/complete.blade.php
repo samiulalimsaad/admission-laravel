@@ -182,13 +182,13 @@
                     </table>
                 </div>
 
-                <form action="{{ route('invoice', $profile->applicationId) }}" method="GET">
-                    @csrf
-                    <div class="flex justify-end w-full">
 
-                        <button type="submit" class="btn btn-primary my-8">Download invoice</button>
-                    </div>
-                </form>
+                <div class="flex justify-end w-full">
+
+                    <a href="{{ route('invoice', $profile->applicationId) }}" class="btn btn-primary my-8">Download
+                        invoice</a>
+                </div>
+
             </div>
 
         </div>

@@ -120,46 +120,6 @@ class ProfileController extends Controller
         return view("confirmation", ["profile"=>$profile]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Profile $profile)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit()
-    {
-        // Show the profile edit form
-        if (Auth::check()) {
-            $profile = Auth::user()->profile; // Assuming each user has one profile
-            return view('profile.edit', compact('profile'));
-        } else {
-            return redirect()->route('login')->with('error', 'You must be logged in to edit your profile.');
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateProfileRequest $request)
-    {
-        // Validate and update the profile data
-        $validated = $request->validated();
-
-        // Assuming the logged-in user has a profile associated with them
-        $profile = Auth::user()->profile;
-
-
-        // Update the profile with validated data
-        $profile->update($validated);
-
-        // Redirect back with a success message
-        return redirect()->route('profile.edit')->with('success', 'Profile updated successfully!');
-    }
 
     /**
      * Remove the specified resource from storage.
