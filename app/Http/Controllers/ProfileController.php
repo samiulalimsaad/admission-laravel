@@ -101,7 +101,23 @@ class ProfileController extends Controller
 
         // return ["message" => "Profile created successfully","code"=> 0,$profile];
 
-        return view("units", ["profile"=>$profile]);
+        return view("upload-image", ["profile"=>$profile]);
+    }
+
+    public function quota(StoreProfileRequest $request)
+    {
+
+        $profile = Profile::where("id", $request->id)->first();
+
+        if ($profile) {
+            $profile->updated_at = date("Y-m-d H:i:s");
+            $profile->quota = $request->quota;
+            $profile->save();
+        }
+
+        return ["message" => "Profile created successfully","code"=> 0,$profile];
+
+        // return view("units", ["profile"=>$profile]);
     }
 
     /**

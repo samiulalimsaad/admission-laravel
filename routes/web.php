@@ -35,6 +35,13 @@ Route::get('/units', function () {
 
 
 
+Route::get('/quota/{id}', function (int $id) {
+    $profile = Profile::where('id', $id)->first();
+    return view('quota', ["profile"=> $profile]);
+})->name('quota');
+
+
+
 
 Route::middleware('guest')->group(function () {
     // If the user is not logged in, the registration and profile creation happens together
@@ -42,6 +49,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/profile/phone', [ProfileController::class, 'phone'])->name('profile.phone');
     Route::post('/profile/phone/verify', [ProfileController::class, 'otp'])->name('profile.otp');
     Route::post('/profile/units', [ProfileController::class, 'units'])->name('profile.units');
+    Route::post('/profile/quota', [ProfileController::class, 'quota'])->name('profile.quota');
 
 });
 
