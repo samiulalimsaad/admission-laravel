@@ -22,12 +22,6 @@ class StoreProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'hsc_roll' => 'nullable|string|max:255',
-            // 'hsc_board' => 'nullable|string|max:255',
-            // 'hsc_year' => 'nullable|in:2023,2024',
-            // 'ssc_roll' => 'nullable|string|max:255',
-            // 'ssc_board' => 'nullable|string|max:255',
-            // 'ssc_year' => 'nullable|in:2023,2024',
         ];
     }
 }

@@ -58,6 +58,21 @@ class ProfileController extends Controller
         return view("dashboard", ["profile"=>$profile]);
     }
 
+    public function phone(StoreProfileRequest $request)
+    {
+
+        $profile = Profile::where("id", $request->id)->first();
+        if ($profile) {
+            $profile->updated_at = date("Y-m-d H:i:s");
+            $profile->phone_number = $request->phone_number;
+            $profile->temp_otp = 123;
+            $profile->save();
+        }
+
+
+        return view("otp", ["profile"=>$profile]);
+    }
+
     /**
      * Display the specified resource.
      */
