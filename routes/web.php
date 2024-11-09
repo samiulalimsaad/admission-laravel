@@ -22,11 +22,18 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 
+Route::get('/otp', function () {
+    $profile = Profile::where('id', 2)->first();
+    return view('otp', ["profile"=> $profile]);
+})->name('otp');
+
+
 
 
 Route::middleware('guest')->group(function () {
     // If the user is not logged in, the registration and profile creation happens together
     Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
     Route::post('/profile/phone', [ProfileController::class, 'phone'])->name('profile.phone');
+    Route::post('/profile/phone/verify', [ProfileController::class, 'otp'])->name('profile.otp');
 
 });

@@ -69,8 +69,23 @@ class ProfileController extends Controller
             $profile->save();
         }
 
-
         return view("otp", ["profile"=>$profile]);
+    }
+
+    public function otp(StoreProfileRequest $request)
+    {
+
+        $profile = Profile::where("id", $request->id)->first();
+        if ($profile&& $profile->temp_otp==$request->otp) {
+            $profile->updated_at = date("Y-m-d H:i:s");
+            $profile->is_phone_number_verified = true;
+            $profile->temp_otp = random_int(100000, 999999);
+            $profile->save();
+        }
+
+        // return ["message" => "Profile created successfully","code"=> 0,$profile];
+
+        return view("units", ["profile"=>$profile]);
     }
 
     /**
