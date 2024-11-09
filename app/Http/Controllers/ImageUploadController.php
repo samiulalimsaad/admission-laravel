@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ImageUploadController extends Controller
 {
-    public function showUploadForm()
+    public function showUploadForm(int $id)
     {
-        $profile = Profile::where('id', 2)->first();
+        $profile = Profile::where('id', $id)->first();
         return view('upload-image', ["profile"=> $profile]);
     }
 

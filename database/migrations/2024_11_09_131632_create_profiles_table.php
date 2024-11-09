@@ -35,6 +35,7 @@ return new class extends Migration {
             $table->string('exam_language')->default('en')->nullable();
             $table->boolean('is_paid')->default(false)->nullable();
             $table->string('invoice')->nullable();
+            $table->string('token')->nullable();
 
 
 

@@ -69,7 +69,7 @@ class ProfileController extends Controller
             $profile->save();
         }
 
-        return view("otp", ["profile"=>$profile]);
+        return redirect('/profile/phone/verify/'.$profile->id)->with('profile', $profile);
     }
 
     public function otp(StoreProfileRequest $request)
@@ -84,8 +84,8 @@ class ProfileController extends Controller
         }
 
         // return ["message" => "Profile created successfully","code"=> 0,$profile];
+        return redirect('/profile/units/'.$profile->id)->with('profile', $profile);
 
-        return view("units", ["profile"=>$profile]);
     }
 
     public function units(StoreProfileRequest $request)
@@ -101,7 +101,7 @@ class ProfileController extends Controller
 
         // return ["message" => "Profile created successfully","code"=> 0,$profile];
 
-        return view("upload-image", ["profile"=>$profile]);
+        return redirect("/upload-image/".$profile->id)->with(["profile"=>$profile]);
     }
 
     public function quota(StoreProfileRequest $request)

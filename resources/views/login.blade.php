@@ -17,7 +17,7 @@
                             <label class="w-1/3" for="hsc_roll">HSC/Equiv. Roll</label>
                             <span> : </span>
                             <input type="text" name="hsc_roll" id="hsc_roll" placeholder="Type here"
-                                class="input input-bordered w-full" value="{{ old('hsc_roll') }}" />
+                                class="input input-bordered w-full" value="{{ old('hsc_roll') }}" required />
                             @error('hsc_roll')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -28,7 +28,7 @@
                             <label class="w-1/3" for="hsc_board">HSC/Equiv. Board</label>
                             <span> : </span>
                             <input type="text" name="hsc_board" id="hsc_board" placeholder="Type here"
-                                class="input input-bordered w-full" value="{{ old('hsc_board') }}" />
+                                class="input input-bordered w-full" value="{{ old('hsc_board') }}" required />
                             @error('hsc_board')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -40,7 +40,8 @@
                         <div class="flex items-center justify-between">
                             <label class="w-1/3" for="hsc_passing_year">HSC/Equiv. Year</label>
                             <span> : </span>
-                            <select name="hsc_passing_year" id="hsc_passing_year" class="select select-bordered w-full">
+                            <select name="hsc_passing_year" id="hsc_passing_year" class="select select-bordered w-full"
+                                required>
                                 <option disabled {{ old('hsc_passing_year') ? '' : 'selected' }}>Year</option>
                                 <option value="2024" {{ old('hsc_passing_year') == '2024' ? 'selected' : '' }}>2024
                                 </option>
@@ -58,7 +59,7 @@
                         <label class="w-1/3" for="hsc_result">HSC/Equiv. Result</label>
                         <span> : </span>
                         <input type="text" name="hsc_result" id="hsc_result" placeholder="Type here"
-                            class="input input-bordered w-full" value="{{ old('hsc_result') }}" />
+                            class="input input-bordered w-full" value="{{ old('hsc_result') }}" required />
                         @error('hsc_result')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -71,7 +72,7 @@
                             <label class="w-1/3" for="ssc_roll">SSC/Equiv. Roll</label>
                             <span> : </span>
                             <input type="text" name="ssc_roll" id="ssc_roll" placeholder="Type here"
-                                class="input input-bordered w-full" value="{{ old('ssc_roll') }}" />
+                                class="input input-bordered w-full" value="{{ old('ssc_roll') }}" required />
                             @error('ssc_roll')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -82,7 +83,7 @@
                             <label class="w-1/3" for="ssc_board">SSC/Equiv. Board</label>
                             <span> : </span>
                             <input type="text" name="ssc_board" id="ssc_board" placeholder="Type here"
-                                class="input input-bordered w-full" value="{{ old('ssc_board') }}" />
+                                class="input input-bordered w-full" value="{{ old('ssc_board') }}" required />
                             @error('ssc_board')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -94,7 +95,8 @@
                         <div class="flex items-center justify-between">
                             <label class="w-1/3" for="ssc_passing_year">SSC/Equiv. Year</label>
                             <span> : </span>
-                            <select name="ssc_passing_year" id="ssc_passing_year" class="select select-bordered w-full">
+                            <select name="ssc_passing_year" id="ssc_passing_year" class="select select-bordered w-full"
+                                required>
                                 <option disabled {{ old('ssc_passing_year') ? '' : 'selected' }}>Year</option>
                                 <option value="2024" {{ old('ssc_passing_year') == '2024' ? 'selected' : '' }}>2024
                                 </option>
@@ -112,7 +114,7 @@
                         <label class="w-1/3" for="ssc_result">SSC/Equiv. Result</label>
                         <span> : </span>
                         <input type="text" name="ssc_result" id="ssc_result" placeholder="Type here"
-                            class="input input-bordered w-full" value="{{ old('ssc_result') }}" />
+                            class="input input-bordered w-full" value="{{ old('ssc_result') }}" required />
                         @error('ssc_result')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror

@@ -32,11 +32,12 @@ class PaymentController extends Controller
             if ($profile) {
                 $profile->updated_at = date("Y-m-d H:i:s");
                 $profile->token =  $request->stripeToken;
+                $profile->is_paid = true;
                 $profile->save();
             }
 
 
-            return redirect('complete')->with(['success_message'=> 'Payment successful!','profile'=>$profile]);
+            return redirect('/complete/'.$profile->id)->with(['success_message'=> 'Payment successful!','profile'=>$profile]);
         } catch (\Exception $e) {
             return back()->with('error_message', $e->getMessage());
         }

@@ -94,9 +94,10 @@
                         </table>
                     </div>
 
-                    <button type="submit" class="btn join-item rounded-r-full btn-warning">Confirm</button>
+
+                    <a href="{{ route('confirmation', $profile->id) }}"
+                        class="btn join-item rounded-r-full btn-success">Confirm</a>
                 </form>
-                <a href="{{ route('confirmation') }}" class="btn join-item rounded-r-full btn-warning">Skip</button>
 
             </div>
         </div>
