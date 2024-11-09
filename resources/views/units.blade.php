@@ -12,7 +12,7 @@
                 <div class="p-4 text-center">
                     <div class="bg-info text-info-content p-4 text-center">
                         <div class="my-4">
-                            যে ইউনিট গুলোতে আবেদন করতে চান তা সিলেক্ট করতে পারবেন।
+                            যে ইউনিটগুলোতে আবেদন করতে চান সেগুলো সিলেক্ট করুন।
                         </div>
                         <div class="divider">
 

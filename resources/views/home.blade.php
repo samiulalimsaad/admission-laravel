@@ -11,6 +11,9 @@
         <!-- Information Links -->
         <div class="card-body">
             <ul class="list-disc m-8 space-y-3">
+                <li><a href="#" class="link">২০২২-২৩ শিক্ষাবর্ষে প্রথমবর্ষ স্নাতক/ স্নাতক (সম্মান) শ্রেণীতে
+                        ভর্তি আবেদনের বিজ্ঞপ্তি
+                    </a></li>
                 <li><a href="#" class="link">Conditions for Different Units</a></li>
                 <li><a href="#" class="link">Conditions for Different Quota</a></li>
                 <li><a href="#" class="link">Exam Routine</a></li>

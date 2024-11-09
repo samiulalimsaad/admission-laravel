@@ -13,44 +13,44 @@
                 </h3>
                 <div class="divider"></div>
                 <div class="bg-info text-info-content p-4 text-center">
-                    <div class="my-4">
-                        * ছবিটি 300x400 পিক্সেল আকারের হবে।
-                        * ছবির ব্যাকগ্রাউন্ড হালকা এক রঙের হতে হবে।
-                        * ছবির সাইজ 100 কিলোবাইটের বেশি হতে পারবে না। |
+                    <ul class="my-4 text-left space-y-2">
+                        <li> * ছবিটি 300x400 পিক্সেল আকারের হবে।</li>
+                        <li> * ছবির ব্যাকগ্রাউন্ড হালকা এক রঙের হতে হবে।</li>
+                        <li> * ছবির সাইজ 100 কিলোবাইটের বেশি হতে পারবে না। |</li>
 
-                        </p>
-                        <div class="divider">
+                    </ul>
+                    <div class="divider">
 
-                        </div>
                     </div>
                 </div>
-
-
-
-                <div class="my-8">
-
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success my-8">{{ $message }}</div>
-                        <img src="/images/{{ Session::get('image') }}" width="300" />
-                    @endif
-
-                    <form action="{{ route('upload.image') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div>
-                            <input type="text" name="id" value="{{ $profile->id }}"
-                                class="input input-bordered block w-full hidden">
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <input type="file" class="file-input file-input-info max-w-xs" required name="image" />
-                            @if (!Session::get('success'))
-                                <button class="btn btn-warning" type="submit">Upload</button>
-                            @endif
-                            @if ($message = Session::get('success'))
-                                <a href="{{ route('quota', $profile->id) }}" class="btn btn-primary">Next</a>
-                            @endif
-                        </div>
-                    </form>
-
-                </div>
             </div>
+
+
+
+            <div class="my-8">
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success my-8">{{ $message }}</div>
+                    <img src="/images/{{ Session::get('image') }}" width="300" />
+                @endif
+
+                <form action="{{ route('upload.image') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div>
+                        <input type="text" name="id" value="{{ $profile->id }}"
+                            class="input input-bordered block w-full hidden">
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <input type="file" class="file-input file-input-info max-w-xs" required name="image" />
+                        @if (!Session::get('success'))
+                            <button class="btn btn-warning" type="submit">Upload</button>
+                        @endif
+                        @if ($message = Session::get('success'))
+                            <a href="{{ route('quota', $profile->id) }}" class="btn btn-primary">Next</a>
+                        @endif
+                    </div>
+                </form>
+
+            </div>
+        </div>
 </x-layout>
