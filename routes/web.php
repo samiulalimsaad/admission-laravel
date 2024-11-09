@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Models\Profile;
+use App\Http\Controllers\ImageUploadController;
 
 Route::get('/', function () {
     return view('home');
@@ -43,3 +44,8 @@ Route::middleware('guest')->group(function () {
     Route::post('/profile/units', [ProfileController::class, 'units'])->name('profile.units');
 
 });
+
+
+
+Route::get('upload-image', [ImageUploadController::class, 'showUploadForm']);
+Route::post('upload-image', [ImageUploadController::class, 'storeImage'])->name('upload.image');
