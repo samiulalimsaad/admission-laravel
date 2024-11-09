@@ -10,15 +10,6 @@
                 @csrf
                 <div class="space-y-4">
 
-                    <div class="flex items-center justify-between">
-                        <label class="w-1/3" for="name">Applicants Name</label>
-                        <span> : </span>
-                        <input type="text" name="name" id="name" placeholder="Type here"
-                            class="input input-bordered w-full" value="{{ old('name') }}" />
-                        @error('name')
-                            <span class="text-red-500 text-sm">{{ $message }}</span>
-                        @enderror
-                    </div>
                     <!-- Left Column -->
                     <div class="flex flex-col gap-4">
                         <!-- HSC/Equiv. Roll -->

@@ -34,7 +34,9 @@ class ProfileController extends Controller
     {
 
         $profile = new Profile();
-        $profile->name = $request->name;
+        $profile->name = fake()->name();
+        $profile->father_name = fake()->name();
+        $profile->mother_name = fake()->name();
         $profile->hsc_roll = $request->hsc_roll;
         $profile->hsc_board = $request->hsc_board;
         $profile->hsc_passing_year = $request->hsc_passing_year;
