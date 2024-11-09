@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
             $table->string('applicationId')->unique();
+            $table->string('name');
             $table->string('hsc_roll');
             $table->string('hsc_board');
             $table->string('hsc_passing_year');

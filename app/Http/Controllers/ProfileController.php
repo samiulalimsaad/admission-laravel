@@ -34,6 +34,7 @@ class ProfileController extends Controller
     {
 
         $profile = new Profile();
+        $profile->name = $request->name;
         $profile->hsc_roll = $request->hsc_roll;
         $profile->hsc_board = $request->hsc_board;
         $profile->hsc_passing_year = $request->hsc_passing_year;
@@ -52,7 +53,7 @@ class ProfileController extends Controller
         Log::info("HSC Board:". $profile->hsc_board ."") ;
 
         // return ["message" => "Profile created successfully","code"=> 0,$profile];
-        return view("dashboard", [$profile]);
+        return view("dashboard", ["profile"=>$profile]);
     }
 
     /**
