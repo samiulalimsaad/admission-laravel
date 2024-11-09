@@ -88,6 +88,22 @@ class ProfileController extends Controller
         return view("units", ["profile"=>$profile]);
     }
 
+    public function units(StoreProfileRequest $request)
+    {
+
+        $profile = Profile::where("id", $request->id)->first();
+
+        if ($profile) {
+            $profile->updated_at = date("Y-m-d H:i:s");
+            $profile->units = $request->units;
+            $profile->save();
+        }
+
+        // return ["message" => "Profile created successfully","code"=> 0,$profile];
+
+        return view("units", ["profile"=>$profile]);
+    }
+
     /**
      * Display the specified resource.
      */

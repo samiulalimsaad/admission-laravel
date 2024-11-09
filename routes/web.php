@@ -27,6 +27,11 @@ Route::get('/otp', function () {
     return view('otp', ["profile"=> $profile]);
 })->name('otp');
 
+Route::get('/units', function () {
+    $profile = Profile::where('id', 2)->first();
+    return view('units', ["profile"=> $profile]);
+})->name('units');
+
 
 
 
@@ -35,5 +40,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
     Route::post('/profile/phone', [ProfileController::class, 'phone'])->name('profile.phone');
     Route::post('/profile/phone/verify', [ProfileController::class, 'otp'])->name('profile.otp');
+    Route::post('/profile/units', [ProfileController::class, 'units'])->name('profile.units');
 
 });
