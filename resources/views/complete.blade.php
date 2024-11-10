@@ -175,7 +175,18 @@
                                 <td class="px-6 py-4 whitespace-nowrap">{{ $profile->exam_language }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     {{ $profile->is_paid ? 'Paid' : 'Unpaid' }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">{{ $profile->invoice ? 'download' : 'No' }}
+                                <td class="px-6 py-4 whitespace-nowrap">
+
+
+                                    @if ($profile->is_paid)
+                                        <a href="{{ route('invoice', $profile->applicationId) }}"
+                                            class="btn btn-primary btn-link my-8">
+                                            Download
+                                        </a>
+                                    @else
+                                        'No'
+                                    @endif
+
                                 </td>
                             </tr>
                         </tbody>
