@@ -8,7 +8,7 @@
             </a>
         </div>
         <div class="navbar-end">
-            <a class="btn btn-primary">Login</a>
+            <a class="btn btn-primary">Apply</a>
         </div>
     </div>
 </nav>

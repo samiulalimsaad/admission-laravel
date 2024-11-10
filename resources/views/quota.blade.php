@@ -7,7 +7,7 @@
 
             <!-- Content Section -->
             <div class="my-8">
-                <h3>প্রাথমিক আবেদনযোগ্য ইউনিট সমূহ:</h3>
+                <h3>প্রাথমিক আবেদনযোগ্য কোটা সমূহ :</h3>
                 <div class="divider"></div>
                 <div class="p-4 text-center">
                     <div class="bg-info text-info-content p-4 text-center">
@@ -92,8 +92,7 @@
                     </div>
 
 
-                    <a href="{{ route('confirmation', $profile->id) }}"
-                        class="btn join-item rounded-r-full btn-success">Confirm</a>
+                    <button type="submit" class="btn join-item rounded-r-full btn-success">Confirm</button>
                 </form>
 
             </div>

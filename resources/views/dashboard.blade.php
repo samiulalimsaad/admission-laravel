@@ -71,9 +71,7 @@
             </div>
 
             <div class="my-8">
-                <h3>
-                    প্রাথমিক আবেদনযোগ্য ইউনিট সমূহ:
-                </h3>
+
                 <div class="divider"></div>
                 <div class="bg-info text-info-content p-4 text-center">
                     <p class="my-4">

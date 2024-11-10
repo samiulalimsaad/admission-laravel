@@ -19,8 +19,8 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/dashboard', function () {
-    $profile = Profile::where('id', 2)->first();
+Route::get('/dashboard/{id}', function (int $id) {
+    $profile = Profile::where('id', $id)->first();
     return view('dashboard', ["profile"=> $profile]);
 })->name('dashboard');
 

@@ -55,7 +55,7 @@ class ProfileController extends Controller
         Log::info("HSC Board:". $profile->hsc_board ."") ;
 
         // return ["message" => "Profile created successfully","code"=> 0,$profile];
-        return redirect("dashboard")->with(["profile"=>$profile]);
+        return redirect("/dashboard/".$profile->id)->with(["profile"=>$profile]);
     }
 
     public function phone(StoreProfileRequest $request)
@@ -117,7 +117,7 @@ class ProfileController extends Controller
             $profile->quota = $request->quota;
             $profile->save();
         }
-        return view("confirmation", ["profile"=>$profile]);
+        return redirect("/confirmation/".$profile->id)->with(["profile"=>$profile]);
     }
 
 
